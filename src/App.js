@@ -69,7 +69,9 @@ return(
 </form>
 {this.state.displayLocation &&
 
-<img src ={`https://maps.locationiq.com/v3/staticmap?key=pk.b95b5d027bac6b00166fd9e61661c8cd&center=${this.state.locData.lat},${this.state.locData.lon}`}/>
+<img src ={`https://maps.locationiq.com/v3/staticmap?key=pk.b95b5d027bac6b00166fd9e61661c8cd&center=${this.state.locData.lat},${this.state.locData.lon}`}
+alt={`Beautiful ${this.state.searchQuery}`}
+/>
 }
 {this.state.errorMassage &&
 <p>error in getting the data</p>
