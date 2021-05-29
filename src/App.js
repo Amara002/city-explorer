@@ -17,7 +17,7 @@ class App extends React.Component{
     event.preventDefault();
     let locUrl =`https://eu1.locationiq.com/v1/search.php?key=pk.b95b5d027bac6b00166fd9e61661c8cd&q=${this.state.searchQuery}&format=json`;
     try{
-
+      console.log('searchQuery>>>>>>>>>>>>>', this.state.searchQuery);
       let locResult = await axios.get(locUrl);
       console.log(locResult.data[0]);
       this.setState({
@@ -45,6 +45,7 @@ class App extends React.Component{
       searchQuery:event.target.value
      
     });
+    console.log('searchQuery>>>>>>>>>>>>>', this.state.searchQuery);
 
   }
  
