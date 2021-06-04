@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Weather from './Weather.js';
 
 class App extends React.Component{
   constructor(props){
@@ -8,9 +9,44 @@ class App extends React.Component{
       searchQuery :'',
       locData : '',
       displayLocation :false,
-      errorMassage :false
+      errorMassage :false,
+      weatherArr : [],
+      displayWeather: false,
+      weatherErrorMassage : false,
+      errorText: ''
     }
   }
+
+
+getWeather = async (weatherUrl) => {
+     try{
+       let weatherResult = await axios({
+         method: 'get',
+         url: weatherUrl,
+         headers:{
+           "Access-Control-Allow-Origin":"*",
+           'Content-Type': 'application/json'
+         }
+       })
+       console.log(weatherResult);
+       this.setState({
+         weatherArr: weatherResult.data,
+         weatherErrorMassage: false,
+         displayWeather: true
+       })
+       console.log(this.state.displayWeather);
+     }
+     catch(error){
+       console.log('error');
+      this.setState
+      ({
+        weatherErrorMassage: true,
+        errorText: error,
+        displayWeather: false
+      })
+     }
+  }
+
 
 
   getLocation = async(event) =>{
@@ -26,7 +62,8 @@ class App extends React.Component{
         
         
       })
-     
+     let weatherUrl = `https://city-explorer-amara.herokuapp.com/weather?searchQuery=${this.state.searchQuery}`;
+      this.getWeather(weatherUrl);
     }
       
     catch{
@@ -78,6 +115,20 @@ alt={`Beautiful ${this.state.searchQuery}`}
 <p>error in getting the data</p>
 }
 
+<div>
+{
+  this.state.displayWeather &&
+  //this.state.weatherArr.map(item=>{
+  //  console.log('helllooooooooooo', item);
+  //  <Weather WeatherDesc={item.description} WeatherCity={item.city_name} WeatherDate={item.date} />
+  //})
+  <Weather weatherData={this.state.weatherArr} />                      
+}
+{
+  this.state.weatherErrorMassage &&
+  <p>This city weather is not found or beacuse of {this.state.errorText}</p>
+}
+</div>
 </>
 )
 
