@@ -8,26 +8,25 @@ import {
 class Movie extends React.Component {
 
     render() {
-        return (
-            this.props.movieData.map((item, index) => {
+      
 
                 return (
-                    <Row key={index}>
+                    <Row key={this.props.key}>
 
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={item.imade_url} alt='Image of movie' />
+                                <Card.Img variant="top" src={this.props.movieRes.imade_url} alt='Image of movie' />
                                 <Card.Body>
-                                    <Card.Title>{item.title}</Card.Title>
+                                    <Card.Title>{this.props.movieRes.title}</Card.Title>
                                     <Card.Text>
-                                        {item.overview}
+                                        {this.props.movieRes.overview}
                                     </Card.Text>
                                 </Card.Body>
                                 <ListGroup className="list-group-flush">
-                                    <ListGroupItem>{item.average_votes}</ListGroupItem>
-                                    <ListGroupItem>{item.total_votes}</ListGroupItem>
-                                    <ListGroupItem>{item.popularity}</ListGroupItem>
-                                    <ListGroupItem>{item.released_on}</ListGroupItem>
+                                    <ListGroupItem>{this.props.movieRes.average_votes}</ListGroupItem>
+                                    <ListGroupItem>{this.props.movieRes.total_votes}</ListGroupItem>
+                                    <ListGroupItem>{this.props.movieRes.popularity}</ListGroupItem>
+                                    <ListGroupItem>{this.props.movieRes.released_on}</ListGroupItem>
                                 </ListGroup>
                                 
                             </Card>
@@ -36,10 +35,10 @@ class Movie extends React.Component {
                     </Row>
 
                 )
-            })
+            }
 
-        )
-    }
+        
+    
 
 }
 
