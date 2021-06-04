@@ -16,7 +16,7 @@ class Movie extends React.Component {
 
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                {/* <Card.Img variant="top" src={imade_url} alt='Image of movie' /> */}
+                                <Card.Img variant="top" src={item.imade_url} alt='Image of movie' />
                                 <Card.Body>
                                     <Card.Title>{item.title}</Card.Title>
                                     <Card.Text>

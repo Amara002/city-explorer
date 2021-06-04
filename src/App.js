@@ -97,7 +97,7 @@ class App extends React.Component {
       })
       let weatherUrl = `https://city-explorer-amara.herokuapp.com/weather?searchQuery=${this.state.searchQuery}`;
       this.getWeather(weatherUrl);
-      let movieUrl = `http://city-explorer-amara.herokuapp.com/movies?searchQuery=${this.state.searchQuery}`;
+      let movieUrl = `https://city-explorer-amara.herokuapp.com/movies?searchQuery=${this.state.searchQuery}`;
       this.getMovie(movieUrl);
     }
 
