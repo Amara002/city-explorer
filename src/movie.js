@@ -12,11 +12,11 @@ class Movie extends React.Component {
             this.props.movieData.map((item, index) => {
 
                 return (
-                    <Row>
+                    <Row key={index}>
 
                         <Col>
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={item.imade_url} />
+                                <Card.Img variant="top" src={item.imade_url} alt='Image of movie' />
                                 <Card.Body>
                                     <Card.Title>{item.title}</Card.Title>
                                     <Card.Text>
