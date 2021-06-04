@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Weather from './Weather.js';
-import Movie from './movie.js';
+import Movies from './movies.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -97,7 +97,7 @@ class App extends React.Component {
       })
       let weatherUrl = `https://city-explorer-amara.herokuapp.com/weather?searchQuery=${this.state.searchQuery}`;
       this.getWeather(weatherUrl);
-      let movieUrl = `http://city-explorer-amara.herokuapp.com/movies?searchQuery=${this.state.searchQuery}`;
+      let movieUrl = `https://city-explorer-amara.herokuapp.com/movies?searchQuery=${this.state.searchQuery}`;
       this.getMovie(movieUrl);
     }
 
@@ -164,7 +164,7 @@ class App extends React.Component {
         <div>
           {
             this.state.displayMovie &&
-            <Movie movieData={this.state.movieArr} />
+            <Movies movieData={this.state.movieArr} />
           }
           {
             this.state.movieErrorMassage &&
