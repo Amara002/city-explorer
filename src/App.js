@@ -58,7 +58,12 @@ class App extends React.Component {
       let movieResult = await axios({
         method: 'get',
         url: movieUrl,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          'Content-Type': 'application/json'
+        }
       })
+      console.log(movieResult);
       this.setState({
         movieArr: movieResult.data,
         movieErrorMassage: false,
